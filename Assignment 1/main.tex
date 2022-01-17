@@ -24,7 +24,19 @@ and the observations are 12, -54, 26, -2, 24, 17, -39. What is the maximum likel
 1.\quad 12 \quad \quad \quad \quad 2.\quad 24 \\ 3.\quad 26 \quad \quad \quad \quad 4.\quad 27
 
 
-\paragraph{Maximum likelihood estimation}The goal of maximum likelihood estimation is to make inferences about the population that is most likely to have generated the sample, specifically the joint probability distribution of the random variables 
+\paragraph{Maximum likelihood estimation}The goal of maximum likelihood estimation is to make inferences about the population that is most likely to have generated the sample, specifically the joint probability distribution of the random variables
+\paragraph{}
+Associated with each probability distribution is a unique vector \( \theta =\left[\theta _{1},\,\theta _{2},\,\ldots ,\,\theta _{k}\right]^{\mathsf {T}}\) of parameters that index the probability distribution within a parametric family \( \{f(\cdot \,;\theta )\mid \theta \in \Theta \}\), where \( \Theta \)  is called the parameter space, a finite-dimensional subset of Euclidean space. Evaluating the joint density at the observed data sample \( \mathbf {y} =(y_{1},y_{2},\ldots ,y_{n})\) gives a real-valued function,
+\\\\
+\({\displaystyle L_{n}(\theta )=L_{n}(\theta ;\mathbf {y} )=f_{n}(\mathbf {y} ;\theta )}\)
+\paragraph{}
+which is called the likelihood function. For independent and identically distributed random variables, \( f_{n}(\mathbf {y} ;\theta )\)  will be the product of univariate density functions.
+\\\\
+The goal of maximum likelihood estimation is to find the values of the model parameters that maximize the likelihood function over the parameter space, that is
+\\\\
+\({\hat {\theta }}={\underset {\theta \in \Theta }{\operatorname {arg\;max} }}\,{\widehat {L}}_{n}(\theta \,;\mathbf {y} )\)
+\paragraph{}
+Intuitively, this selects the parameter values that make the observed data most probable. The specific value \({\hat {\theta }}={\hat {\theta }}_{n}(\mathbf {y} )\in \Theta \) that maximizes the likelihood function \( L_{n}\) is called the maximum likelihood estimate
 \paragraph{Solution}
 Here, p.d.f of distribution is \[
     f(x)= 
