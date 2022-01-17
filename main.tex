@@ -1,0 +1,60 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+
+\title{Assignment 1}
+\author{AI22MTECH02003 - Shrey Satapara}
+\date{January 2022}
+
+\begin{document}
+
+\maketitle
+
+\paragraph{}
+Q54) A random sample of size 7 is drawn from a distribution with p.d.f. \\ 
+\[
+    f_\theta(x)= 
+\begin{cases}
+\frac{1 + x^2}{3\theta(1+\theta^2)},& -2\theta \leq x \leq \theta, \theta > 0\\
+    0,              & otherwise
+\end{cases}
+\]
+and the observations are 12, -54, 26, -2, 24, 17, -39. What is the maximum likelihood estimation of \(\theta\).
+\\\\
+1.\quad 12 \quad \quad \quad \quad 2.\quad 24 \\ 3.\quad 26 \quad \quad \quad \quad 4.\quad 27
+
+\paragraph{}
+Here, Given x the maximum likelihood estimate (MLE) for the parameter \(\theta\) is the value of \(\theta\) that maximizes the likelihood \(P(x | \theta)\). That is, the MLE is the value of \(\theta\) for which the data is most likely.
+\\
+Here, p.d.f of distribution is \[
+    f(x)= 
+\begin{cases}
+\frac{1 + x^2}{3\theta(1+\theta^2)},& -2\theta \leq x \leq \theta, \theta > 0\\
+    0,              & otherwise
+\end{cases}
+\], so for data point \(x_i\) = 12, Probability \(P_\theta(x_i = 12)\)  \[= \begin{cases}
+\frac{1 + 12^2}{3\theta(1+\theta^2)},& -2\theta \leq x \leq \theta, \theta > 0\\
+    0,              & otherwise
+\end{cases}
+\]
+\[= \begin{cases}
+\frac{145}{3\theta(1+\theta^2)},& -2\theta \leq x \leq \theta, \theta > 0\\
+    0,              & otherwise
+\end{cases}
+\] 
+for every \(x_i\) we can can calculate probability in the same way. \\
+Now, for all random variables joint pdf function will be 
+\[f_\theta(x_1,x_2,....,x_7 | \theta)= \begin{cases}
+\frac{1 + x_1}{3\theta(1+\theta^2)},& -2\theta \leq x \leq \theta, \theta > 0\\
+    0,              & otherwise
+\end{cases} * \begin{cases}
+\frac{1 + x_2}{3\theta(1+\theta^2)},& -2\theta \leq x \leq \theta, \theta > 0\\
+    0,              & otherwise
+\end{cases} ....
+\] 
+\\ 
+Where, \(x_1 = 12, X_2 = -54\) and so on.
+\\ Here from looking at the options given in question, 27(option 4) is the correct answer because it's the only option that satisfy condition \(-2\theta \leq x \leq \theta , \theta > 0\). In all other cases we'll get joint p.d.f. 0.
+\\\paragraph{}
+\textbf{Hence answer is 27(option 4)}
+\end{document}
