@@ -1,0 +1,44 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+
+\title{Assignment 2}
+\author{AI22MTECH02003 - Shrey Satapara}
+\date{January 2022}
+
+\begin{document}
+
+\maketitle
+
+\paragraph{Q57}
+ Suppose \(r_{1.23}\) and \(r_{1.234}\) are sample multiple correlation coefficients of \(X_1\) on \(X_2,X_3\) and \(X_1\) on \(X_2,X_3,X_4\) respectively. Which of the following is possible?\\\\
+1. \quad \(r_{1.23} = -0.3\) and \(r_{1.234} = 0.7\)\\
+2. \quad \(r_{1.23} = 0.7\) and \(r_{1.234} = 0.3\)\\
+3. \quad \(r_{1.23} = 0.3\) and \(r_{1.234} = 0.7\)\\
+4. \quad \(r_{1.23} = 0.7\) and \(r_{1.234} = -0.3\)\\
+
+\paragraph{Coefficient Of Multiple Correlation:}
+The coefficient of multiple correlation, denoted R, is a scalar that is defined as the Pearson correlation coefficient between the predicted and the actual values of the dependent variable in a linear regression model that includes an intercept.
+\\\\
+The coefficient of multiple correlation(R) is known as the square root of the coefficient of determination(\(R^2\))
+\\\\
+for any multi-linear regression model \(R^2\) can be calculated using the formula given bellow\\
+\begin{equation}
+    R^2 = 1 - \frac{sum squared regression (SSR)}{total sum of squares (SST)}
+\end{equation}\begin{equation}
+    R^2 = 1 - \frac{\sum(y_i - \hat{y_i})}{\sum(y_i - \Bar{y})}\\
+\end{equation}
+where,\\
+\hspace*{1em} \quad \quad    \(y_i\) is actual value,\\
+\hspace*{1em} \quad \quad    \(\hat{y_i}\) is predicted value,\\
+\hspace*{1em} \quad \quad    and \(\Bar{y}\) is mean of y values.
+\paragraph{Solution}
+ From equation 2 we can see that value of coefficient of multiple correlation can't be negative, also if we introduce more variables, the \(R^2\) will always increase, it can never decrease. This follows mathematically from the observation that,\\
+\begin{equation}
+    (y - \beta_0 - \beta_1x_1 - \dots - \beta_px_p - \beta_{p+1}x_{p+1})^2 \leq (y - \beta_0 - \beta_1x_1 - \dots - \beta_px_p)^2
+\end{equation}
+\\
+\textbf{Hence by looking at options we can say that option 3(\(r_{1.23} = 0.3\) and \(r_{1.234} = 0.7\)) is the correct answer}
+
+
+\end{document}
