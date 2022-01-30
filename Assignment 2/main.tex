@@ -1,7 +1,7 @@
 \documentclass{article}
 \usepackage[utf8]{inputenc}
 \usepackage{amsmath}
-
+\usepackage{comment}
 \title{Assignment 2}
 \author{AI22MTECH02003 - Shrey Satapara}
 \date{January 2022}
@@ -17,7 +17,11 @@
 3. \quad \(r_{1.23} = 0.3\) and \(r_{1.234} = 0.7\)\\
 4. \quad \(r_{1.23} = 0.7\) and \(r_{1.234} = -0.3\)\\
 
-\paragraph{Coefficient Of Multiple Correlation:}
+\paragraph{Sol}
+Here, as given in the question \(X_2,X_3 & X_4\) are independent random variables and \(X_1\) is dependent variable.
+\paragraph{}
+\(r_{1.23}\) is coefficient of multiple correlation of \(X_1 on X_2,X_3\) and \(r_1.234\) is coefficient of multiple correlation of \(X_1 on X_2,X_3,X_4\).
+\paragraph{}
 The coefficient of multiple correlation, denoted R, is a scalar that is defined as the Pearson correlation coefficient between the predicted and the actual values of the dependent variable in a linear regression model that includes an intercept.
 \\\\
 The coefficient of multiple correlation(R) is known as the square root of the coefficient of determination(\(R^2\))
@@ -26,19 +30,46 @@ for any multi-linear regression model \(R^2\) can be calculated using the formul
 \begin{equation}
     R^2 = 1 - \frac{sum squared regression (SSR)}{total sum of squares (SST)}
 \end{equation}\begin{equation}
-    R^2 = 1 - \frac{\sum(y_i - \hat{y_i})}{\sum(y_i - \Bar{y})}\\
+    R^2 = 1 - \frac{\sum(y_i - \hat{y_i})^2}{\sum(y_i - \Bar{y})^2}\\
 \end{equation}
 where,\\
 \hspace*{1em} \quad \quad    \(y_i\) is actual value,\\
 \hspace*{1em} \quad \quad    \(\hat{y_i}\) is predicted value,\\
-\hspace*{1em} \quad \quad    and \(\Bar{y}\) is mean of y values.
-\paragraph{Solution}
- From equation 2 we can see that value of coefficient of multiple correlation can't be negative, also if we introduce more variables, the \(R^2\) will always increase, it can never decrease. This follows mathematically from the observation that,\\
+\hspace*{1em} \quad \quad    and \(\Bar{y}\) is mean of actual y values.
+
+
+\paragraph{}
+So, in our case \(X_1\) is actual value and \(\Bar{X_1}\) is mean of \(X_1\) values. Here, values of \(X_1\) variable can be predicted by using independent random variables \(X_2,X_3,X_4\) by using multiple linear regression.
+\paragraph{}
+here, lets say \(\hat{X_{123}}\) is predicted value of \(X_1\) using \(X_2, X_3\) and \(\hat{X_{1234}}\) is predicted value of \(X_1\) using \(X_2, X_3,X_4\).
+\\
+So \begin{equation}
+    \hat{X_{123_i}} = \beta_2x_2  + \beta_3x_3
+\end{equation} 
+and \begin{equation}
+\hat{X_{1234_i}} = \beta_2x_2 + \beta_3x_3 + \beta_4x_4    
+\end{equation}
+So here,
+\begin{equation}
+    r_{1.23}^2 = 1 - \frac{\sigma(X_{1_i} - \hat{X_{123_i}})^2}{X_{1_i} - \Bar{X_1}}
+\end{equation}
+and
+\begin{equation}
+    r_{1.234}^2 = 1 - \frac{\sigma(X_{1_i} - \hat{X_{1234_i}})^2}{X_{1_i} - \Bar{X_1}}
+\end{equation}
+
+Here from equation 2 we can clearly see that coefficient of multiple correlation cannot be negative. Also, if we introduce more variables, the \(R^2\) will always increase, it can never decrease. This follows mathematically from the observation that,\\
 \begin{equation}
     (y - \beta_0 - \beta_1x_1 - \dots - \beta_px_p - \beta_{p+1}x_{p+1})^2 \leq (y - \beta_0 - \beta_1x_1 - \dots - \beta_px_p)^2
-\end{equation}
+\end{equation} \\
+Hence, in our case \(\sigma(X_{1_i} - \hat{X_{1234_i}})^2 \leq \sigma(X_{1_i} - \hat{X_{123_i}})^2\) is always true. Means, \(R_{1.234} \leq R_{1.23}\) is always true.   
+\paragraph{}
+Hence we can conclude 2 statements that, \begin{itemize}
+    \item Coefficient of multiple correlation cannot be negative.
+    \item if we introduce more variables, the \(R^2\) will always increase, it can never decrease.
+\end{itemize}
 \\
-\textbf{Hence by looking at options we can say that option 3(\(r_{1.23} = 0.3\) and \(r_{1.234} = 0.7\)) is the correct answer}
-
-
+If we look at option 1 value of \(r_{1.23}\) is negative and in option 4 value of  \(r_{1.234}\) is negative hence these options are not possible. In option 2, value of \(r_{1.23}\) is grater than value of \(r_{1.234}\) which is also not possible.
+\paragraph{}
+\textbf{Only option 3(\(r_{1.23} = 0.3\) and \(r_{1.234} = 0.7\)) satisfy both the conditions hence option 3 is the correct answer}
 \end{document}
