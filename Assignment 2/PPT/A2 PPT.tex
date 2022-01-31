@@ -1,0 +1,116 @@
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND THEMES
+%----------------------------------------------------------------------------------------
+\documentclass[aspectratio=169,xcolor=dvipsnames]{beamer}
+\usetheme{SimplePlus}
+
+\usepackage{hyperref}
+\usepackage{graphicx} % Allows including images
+\usepackage{booktabs} % Allows the use of \toprule, \midrule and \bottomrule in tables
+
+%----------------------------------------------------------------------------------------
+%	TITLE PAGE
+%----------------------------------------------------------------------------------------
+
+\title[]{Coefficient of Multiple Correlation} % The short title appears at the bottom of every slide, the full title is only on the title page
+\subtitle{}
+
+\author[] {AI22MTECH02003 - Shrey Satapara}
+
+\institute[] % Your institution as it will appear on the bottom of every slide, may be shorthand to save space
+{
+    Department of Artificial Intelligence \\
+    IIT Hyderabad % Your institution for the title page
+}
+\date{\today} % Date, can be changed to a custom date
+
+
+%----------------------------------------------------------------------------------------
+%	PRESENTATION SLIDES
+%----------------------------------------------------------------------------------------
+
+\begin{document}
+
+\begin{frame}
+    % Print the title page as the first slide
+    \titlepage
+\end{frame}
+
+\begin{frame}{Question 57}
+     Suppose \(r_{1.23}\) and \(r_{1.234}\) are sample multiple correlation coefficients of \(X_1\) on \(X_2,X_3\) and \(X_1\) on \(X_2,X_3,X_4\) respectively. Which of the following is possible? 
+1. \quad \(r_{1.23} = -0.3\) and \(r_{1.234} = 0.7\)\\
+2. \quad \(r_{1.23} = 0.7\) and \(r_{1.234} = 0.3\)\\
+3. \quad \(r_{1.23} = 0.3\) and \(r_{1.234} = 0.7\)\\
+4. \quad \(r_{1.23} = 0.7\) and \(r_{1.234} = -0.3\)\\
+\end{frame}
+
+\begin{frame}{Data}
+    \begin{itemize}
+        \item Here, as given in the question \(X_2,X_3 & X_4\) are independent random variables and \(X_1\) is dependent variable.
+        \item \(r_{1.23}\) is coefficient of multiple correlation of \(X_1\) on \(X_2,X_3\) and \(r_{1.234}\) is coefficient of multiple correlation of \(X_1\) on \(X_2,X_3,X_4\).
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Coefficient of Multiple Correlation}
+    \begin{itemize}
+        \item The coefficient of multiple correlation, denoted R, is a scalar that is defined as the Pearson correlation coefficient between the predicted and the actual values of the dependent variable in a linear regression model that includes an intercept.
+\item The coefficient of multiple correlation(R) is known as the square root of the coefficient of determination(\(R^2\))
+\item For any multi-linear regression model \(R^2\) can be calculated using the formula given bellow\\
+\begin{equation}
+    R^2 = 1 - \frac{sum squared regression (SSR)}{total sum of squares (SST)}
+\end{equation}\begin{equation}
+    R^2 = 1 - \frac{\sum(y_i - \hat{y_i})^2}{\sum(y_i - \Bar{y})^2}\\
+\end{equation}
+    \end{itemize}
+\end{frame}
+\begin{frame}{Contd...}
+where,\\
+\hspace*{1em} \quad \quad    \(y_i\) is actual value,\\
+\hspace*{1em} \quad \quad    \(\hat{y_i}\) is predicted value,\\
+\hspace*{1em} \quad \quad    and \(\Bar{y}\) is mean of actual y values.    
+\end{frame}
+\begin{frame}{Solution}
+    \begin{itemize}
+        \item So, in our case \(X_1\) is actual value and \(\Bar{X_1}\) is mean of \(X_1\) values. Here, values of \(X_1\) variable can be predicted by using independent random variables \(X_2,X_3,X_4\) by using multiple linear regression.
+
+\item here, lets say \(\hat{X_{123}}\) is predicted value of \(X_1\) using \(X_2, X_3\) and \(\hat{X_{1234}}\) is predicted value of \(X_1\) using \(X_2, X_3,X_4\) and \(\beta_i\) are parameters of multiple linear regression.
+\\
+\item So \begin{equation}
+    \hat{X_{123_i}} = \beta_2x_2  + \beta_3x_3
+\end{equation} 
+\item and \begin{equation}
+\hat{X_{1234_i}} = \beta_2x_2 + \beta_3x_3 + \beta_4x_4    
+\end{equation}
+    \end{itemize}
+\end{frame}
+\begin{frame}{Solution contd...}
+    \begin{itemize}
+        \item So here,
+\begin{equation}
+    r_{1.23}^2 = 1 - \frac{\Sigma(X_{1_i} - \hat{X_{123_i}})^2}{X_{1_i} - \Bar{X_1}}
+\end{equation}
+\item and
+\begin{equation}
+    r_{1.234}^2 = 1 - \frac{\Sigma(X_{1_i} - \hat{X_{1234_i}})^2}{X_{1_i} - \Bar{X_1}}
+\end{equation}
+    \end{itemize}
+\end{frame}
+\begin{frame}{Solution contd...}
+    \begin{itemize}
+        \item Here from equation 2 we can clearly see that coefficient of multiple correlation cannot be negative. Also, if we introduce more variables, the \(R^2\) will always increase, it can never decrease. This follows mathematically from the observation that,\\
+\begin{equation}
+    (y - \beta_0 - \beta_1x_1 - \dots - \beta_px_p - \beta_{p+1}x_{p+1})^2 \leq (y - \beta_0 - \beta_1x_1 - \dots - \beta_px_p)^2
+\end{equation} \\
+\item Hence, in our case \(\Sigma(X_{1_i} - \hat{X_{1234_i}})^2 \leq \Sigma(X_{1_i} - \hat{X_{123_i}})^2\) is always true. Means, \(r_{1.23} \leq r_{1.234}\) is always true.
+    \end{itemize}
+\end{frame}
+\begin{frame}{Conclusion}
+\begin{itemize}
+    \item If we look at option 1 value of \(r_{1.23}\) is negative and in option 4 value of  \(r_{1.234}\) is negative hence these options are not possible. In option 2, value of \(r_{1.23}\) is grater than value of \(r_{1.234}\) which is also not possible.
+    \item \textbf{Only option 3 (\(r_{1.23} = 0.3\) and \(r_{1.234} = 0.7\)) satisfy both the conditions hence option 3 is the correct answer}
+\end{itemize}
+\end{frame}
+\begin{frame}
+    \Huge{\centerline{\textbf{Thank You}}}
+\end{frame}
+\end{document}

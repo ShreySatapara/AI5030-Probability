@@ -20,7 +20,7 @@
 \paragraph{Sol}
 Here, as given in the question \(X_2,X_3 & X_4\) are independent random variables and \(X_1\) is dependent variable.
 \paragraph{}
-\(r_{1.23}\) is coefficient of multiple correlation of \(X_1 on X_2,X_3\) and \(r_1.234\) is coefficient of multiple correlation of \(X_1 on X_2,X_3,X_4\).
+\(r_{1.23}\) is coefficient of multiple correlation of \(X_1\) on \(X_2,X_3\) and \(r_1.234\) is coefficient of multiple correlation of \(X_1\) on \(X_2,X_3,X_4\).
 \paragraph{}
 The coefficient of multiple correlation, denoted R, is a scalar that is defined as the Pearson correlation coefficient between the predicted and the actual values of the dependent variable in a linear regression model that includes an intercept.
 \\\\
@@ -51,18 +51,18 @@ and \begin{equation}
 \end{equation}
 So here,
 \begin{equation}
-    r_{1.23}^2 = 1 - \frac{\sigma(X_{1_i} - \hat{X_{123_i}})^2}{X_{1_i} - \Bar{X_1}}
+    r_{1.23}^2 = 1 - \frac{\Sigma(X_{1_i} - \hat{X_{123_i}})^2}{X_{1_i} - \Bar{X_1}}
 \end{equation}
 and
 \begin{equation}
-    r_{1.234}^2 = 1 - \frac{\sigma(X_{1_i} - \hat{X_{1234_i}})^2}{X_{1_i} - \Bar{X_1}}
+    r_{1.234}^2 = 1 - \frac{\Sigma(X_{1_i} - \hat{X_{1234_i}})^2}{X_{1_i} - \Bar{X_1}}
 \end{equation}
 
 Here from equation 2 we can clearly see that coefficient of multiple correlation cannot be negative. Also, if we introduce more variables, the \(R^2\) will always increase, it can never decrease. This follows mathematically from the observation that,\\
 \begin{equation}
     (y - \beta_0 - \beta_1x_1 - \dots - \beta_px_p - \beta_{p+1}x_{p+1})^2 \leq (y - \beta_0 - \beta_1x_1 - \dots - \beta_px_p)^2
 \end{equation} \\
-Hence, in our case \(\sigma(X_{1_i} - \hat{X_{1234_i}})^2 \leq \sigma(X_{1_i} - \hat{X_{123_i}})^2\) is always true. Means, \(R_{1.234} \leq R_{1.23}\) is always true.   
+Hence, in our case \(\Sigma(X_{1_i} - \hat{X_{1234_i}})^2 \leq \Sigma(X_{1_i} - \hat{X_{123_i}})^2\) is always true. Means, \(r_{1.23} \leq r_{1.234}\) is always true.   
 \paragraph{}
 Hence we can conclude 2 statements that, \begin{itemize}
     \item Coefficient of multiple correlation cannot be negative.
