@@ -161,7 +161,7 @@ columns=fullflexible
 \vspace{3cm}
 
 \title{
-Assignment - 4 
+Assignment - 5
 }
 \author{AI22MTECH02003 - Shrey Satapara}	
 
@@ -169,56 +169,41 @@ Assignment - 4
 \maketitle
 
 
-\textbf{Q-57 (Dec 2018)}
-If \(X \sim N_p(0,I)\) and \(A_{pxp}\) is an idempotent matrix with \(rank(A) = k < p\), then which of the following statements is correct?
-\\\\
-1. \quad \(\frac{X'AX}{X'X} \sim \frac{k}{p}F_{k,p}\)\\\\
-2. \quad \(\frac{X'AX}{X'X} \sim \frac{k}{p-k}F_{k,p-k}\)\\\\
-3. \quad \(\frac{X'AX}{X'X} \sim Beta\left(\frac{k}{2},\frac{p}{2}\right)\)\\\\
-4. \quad \(\frac{X'AX}{X'X} \sim Beta\left(\frac{k}{2},\frac{p-k}{2}\right)\)
+\textbf{Q-57 (June 2018)}
+The covariance matrix of four dimensional random vector X is of the form\\
+\begin{bmatrix}
+1 & \rho & \rho & \rho\\
+\rho & 1 & \rho & \rho\\
+\rho & \rho & 1 & \rho\\
+\rho & \rho & \rho & 1\\
+\end{bmatrix}, Where \(\rho < 0\)\\\\
+If v is the variance of the first principle component then,
+\\
+1. \quad v cannot exceed 5/4\\
+2. \quad v can exceed 5/4 but cannot exceed 4/3\\
+3. \quad v can exceed 4/3 but cannot exceed 3/2\\
+4. \quad v can exceed 3/2\\
+\\
+\textbf{covariance matrix}: In probability theory and statistics, a covariance matrix is a square matrix giving the covariance between each pair of elements of a given random vector
 \\\\
 \textbf{Solution}
-Here, X has multivariate normal distribution with p variables and A is an idempotent matrix with rank k and and dimension pxp, where  \(k<p\)
-\\\\
-Hence, \(X'X = \chi_p^2\) (chi squared distribution with p degree of freedom)
+Here, co-variance matrix is given and we've to find maximum value of variance of first principle component. For that, first we have to find principle components. And for that we have to find eigenvalues of covariance matrix.
 \\
-Here, A is an idempotent matrix hence we can decompose it like bellow.
-\begin{equation}
-    A = VDV'
-\end{equation}
-A is an idempotent matrix means \(A^2 = AA = A\) hence from eq 1 we can say that
+\par
+By calculations we get 4 eigen values \(1-\rho,\:1-\rho,\:1-\rho,\:3\rho + 1\) which will be the variance of their respective principle component, \\\\here \(\rho > 0\) means \((1 - \rho) > (3\rho +1)\)\\\\
+So, order of principle components is \(1-\rho,\:1-\rho,\:1-\rho,\:3\rho + 1\)\\\\
+here first 3 principle components are same so their variance will be same,
+let's assume \(x = 1 - \rho \:and\: y = 3\rho + 1\) and \(x,y \geq 0\) because co-variance matrix is positive semi definite. Also note that variance of data remains same after applying linear transformation through eigan vectors.
+Hence,
 \begin{equation}
 \begin{split}
-    (VDV')(VDV') = A \\ 
-    \therefore VD^2V' = VDV' \\ 
-    \therefore D^2 = D \\
-    \therefore D = I \\
+3x + y = 4\\
+\therefore 3x < 4 \:\:(because y > 0)\\
+\therefore x < 4/3\\    
 \end{split}
 \end{equation}
-\\\\
-Let's take Z = V'X then \(Z \sim N_k(0,I)\) because Z is a linear combination of normal random variables so it also follows normal distribution.
-\\\\
-Now,
-\begin{equation}
-    \begin{split}
-        X'AX &= X'VDV'X \\
-        &= Z'DZ \:\:\:\:(where\: Z\: is\: P'X) \\ 
-        &= Z'Z \:\:\:\:(because\: D\: is\: Identity) \\
-        &\sim \chi_k^2 \\
-    \end{split}
-\end{equation}
-Here, in Z'Z chi square distribution is having only k degrees of freedom because in rank(A) = k hence, D will have k entries with 1 and 
-Now we already know that \(X'X \sim \chi_p^2\) so
-\begin{equation}
-    \begin{split}
-        \frac{X'AX}{X'X} \sim \frac{\chi_k^2}{\chi_p^2} \\
-        &\sim \frac{\frac{\chi_k^2}{k}}{\frac{\chi_p^2}{p}} * \frac{k}{p} \\
-        &\sim F(k,p)*\frac{k}{p} \\
-    \end{split}
-\end{equation}
+\textbf{Means x cannot exceed 4/3 which is option 2}
 
--
-Which is Option 1
 \end{document}
 
 
