@@ -204,6 +204,80 @@ Hence,
 \end{equation}
 \textbf{Means x cannot exceed 4/3 which is option 2}
 
+\section{Proof that Variance of linearly transformed space is eigan values of principle components}
+
+Here in this problem 4 dimensional random vector is given. Let's assume those random vector are \(X_1,X_2,X_3,X_4\) so the matrix will be \begin{bmatrix}
+X_1 & X_2 & X_3 & X_4
+\end{bmatrix}\\\\
+So here, co-variance matrix will be 
+
+
+\begin{bmatrix}
+var(X_1) & cov(X_1,X_2) & cov(X_1,X_3) & cov(X_1,X_4)\\
+cov(X_2,X_1) & var(X_2) & cov(X_2,X_3) & cov(X_2,X_4)\\
+cov(X_3,X_1) & cov(X_3,X_2) & var(X_3) & cov(X_3,X_4)\\
+cov(X_4,X_1) & cov(X_4,X_2) & cov(X_4,X_3) & var(X_4)\\
+\end{bmatrix} = \begin{bmatrix}
+1 & \rho & \rho & \rho\\
+\rho & 1 & \rho & \rho\\
+\rho & \rho & 1 & \rho\\
+\rho & \rho & \rho & 1\\
+\end{bmatrix} \quad\quad  ----- Eq(A)
+
+\\\par
+
+now by calculations we found out eigenvectors of all the eigen values and those eigen vectors are  
+\begin{bmatrix}
+-1 \\ 0 \\ 0 \\ 1
+\end{bmatrix}, \begin{bmatrix}
+-1 \\ 0 \\ 1 \\ 0
+\end{bmatrix}, \begin{bmatrix}
+-1 \\ 1 \\ 0 \\ 0
+\end{bmatrix}, \begin{bmatrix}
+1 \\ 1 \\ 1 \\ 1
+\end{bmatrix}, for \(1 -\rho,1 -\rho,1 -\rho,3\rho + 1\). 
+
+now since we want to find out variance for first principle component we'll apply linear transformation using eigen vector where eigen value is maximum which is \(1 - \rho\) in this case. and respective eigen vector is ev =  \begin{bmatrix}
+-1 \\ 0 \\ 0 \\ 1
+\end{bmatrix}.
+
+In PCA, before applying linear transformation to data first we convert respective eigen vector to unit length vector. 
+so unit eigen vector for ev is
+\begin{align}
+    uev &= \frac{1}{||X||}*ev \\
+    &=\frac{1}{\sqrt{(-1)^2+0+0+(1)^2}}*\begin{bmatrix}
+-1 \\ 0 \\ 0 \\ 1
+\end{bmatrix}\\
+    &=\frac{1}{\sqrt{2}}*\begin{bmatrix}
+-1 \\ 0 \\ 0 \\ 1
+\end{bmatrix}\\
+&=\begin{bmatrix}
+\frac{-1}{\sqrt{2}} \\ 0 \\ 0 \\ \frac{1}{2}
+\end{bmatrix}
+\end{align}
+
+Now let's apply linear transformation on data.
+
+\begin{bmatrix}
+X_1 & X_2 & X_3 & X_4
+\end{bmatrix} * \begin{bmatrix}
+\frac{-1}{\sqrt{2}} \\ 0 \\ 0 \\ \frac{1}{\sqrt{2}}
+\end{bmatrix} = \begin{bmatrix}
+\frac{-X_1}{\sqrt{2}} + \frac{X_4}{\sqrt{2}}
+\end{bmatrix}\\
+
+so here we wants to find variance of linearly transformed space.
+\\
+\begin{align*}
+    V(\frac{-X_1}{\sqrt{2}}\:+\frac{X_4}{\sqrt{2}})\:{}&\\
+    &=\:V(\frac{-X_1}{\sqrt{2}})\:+\:V(\frac{X_4}{\sqrt{2}})\:&\\-\:2cov(\frac{-X_1}{\sqrt{2}},\frac{X_4}{\sqrt{2}}) \\
+    &=\:V(\frac{X_1}{\sqrt{2}})\:+\:V(\frac{X_4}{\sqrt{2}})\:-&\\\:2cov(\frac{X_1}{\sqrt{2}},\frac{X_4}{\sqrt{2}}) \\
+    \:\:(\because V(-X)\:=\:V(X))\\
+    &= \frac{var(X_1)}{2} + \frac{var(X_4)}{2} &\\- \frac{2cov(X_1,X_4)}{\sqrt{2}\sqrt{2}} &\\
+    (\because var(cX) = c^2var(X) &\\\:cov(aX,bY) = ab*cov(X,Y))\\
+    &=\frac{1}{2}+\frac{1}{2}-p&\\(from \:Eq(A))&\\
+    &=1\:-\:p
+\end{align*} which is the eigen value of first principal component.
 \end{document}
 
 
