@@ -161,7 +161,7 @@ columns=fullflexible
 \vspace{3cm}
 
 \title{
-Assignment - 5
+Assignment - 6
 }
 \author{AI22MTECH02003 - Shrey Satapara}	
 
@@ -169,115 +169,68 @@ Assignment - 5
 \maketitle
 
 
-\textbf{Q-57 (June 2018)}
-The covariance matrix of four dimensional random vector X is of the form\\
-\begin{bmatrix}
-1 & \rho & \rho & \rho\\
-\rho & 1 & \rho & \rho\\
-\rho & \rho & 1 & \rho\\
-\rho & \rho & \rho & 1\\
-\end{bmatrix}, Where \(\rho < 0\)\\\\
-If v is the variance of the first principle component then,
-\\
-1. \quad v cannot exceed 5/4\\
-2. \quad v can exceed 5/4 but cannot exceed 4/3\\
-3. \quad v can exceed 4/3 but cannot exceed 3/2\\
-4. \quad v can exceed 3/2\\
-\\
-\textbf{covariance matrix}: In probability theory and statistics, a covariance matrix is a square matrix giving the covariance between each pair of elements of a given random vector
+\textbf{Q-115 (Dec 2017)}
+Suppose \(X_1,\dots,X_n\) are i.i.d. random vectors from \(N_p(0,\Sigma)\). Let \(l \in R^p,\:E(\Sigma_{i=1}^nl^tX_iX_i^tl)=c\) and \(E(\Sigma_{i=1}^nX_iX_i^t)=A\).\\ Which of the following statements are necessarily true?
 \\\\
+1.\quad\(c = l^tl\) \\\\
+2.\quad\(l^t(\Sigma_{i=1}^nX_iX_i^t)l\) follows a chi-squared distribution\\\\
+3.\quad\(l^t(\Sigma_{i=1}^{n_1}X_iX_i^t)l\) and \(l^t(\Sigma_{i={n_1+1}}^nX_iX_i^t)l\) are independently distributed for \(1\leq n_1\leq n-1\).\\\\
+4.\quad\(A=\Sigma\)\\\\
+
 \textbf{Solution}
-Here, co-variance matrix is given and we've to find maximum value of variance of first principle component. For that, first we have to find principle components. And for that we have to find eigenvalues of covariance matrix.
-\\
-\par
-By calculations we get 4 eigen values \(1-\rho,\:1-\rho,\:1-\rho,\:3\rho + 1\) which will be the variance of their respective principle component, \\\\here \(\rho > 0\) means \((1 - \rho) > (3\rho +1)\)\\\\
-So, order of principle components is \(1-\rho,\:1-\rho,\:1-\rho,\:3\rho + 1\)\\\\
-here first 3 principle components are same so their variance will be same,
-let's assume \(x = 1 - \rho \:and\: y = 3\rho + 1\) and \(x,y \geq 0\) because co-variance matrix is positive semi definite. Also note that variance of data remains same after applying linear transformation through eigan vectors.
-Hence,
+Here, \(X_1,\dots,X_n\) are i.i.d. random vectors from \(N_p(0,\Sigma)\).\\\\
+So, \(\Sigma_{i=1}^n(X_iX_i^t)\sim W_p(\Sigma,n)\) which is a wishart distribution with degree of freedom \(n\) and scale matrix \(\Sigma\).\\
+
+\(W_p(\Sigma,n)\) is a probability distribution on the set of \(p x p\) symmetric non-negative definite random matrices. it is the sum of zero mean (multivariate) normal random variables squared.\\
+
+now,
+\begin{equation}
+        \Sigma_{i=1}^nl^tX_iX_i^tl = \Sigma_{i=1}^n(l^tX_i)(l^tX_i)^t
+\end{equation}
+Let's take \(y_i = l^tX_i\) and here \(X_i \sim N(0,\Sigma)\) then \(y_i \sim N(0,l^t\Sigma l)\)  So,
 \begin{equation}
 \begin{split}
-3x + y = 4\\
-\therefore 3x < 4 \:\:(because y > 0)\\
-\therefore x < 4/3\\    
+    \Sigma_{i=1}^nl^tX_iX_i^tl &= \Sigma_{i=1}^ny_iy_i^t
 \end{split}
 \end{equation}
-\textbf{Means x cannot exceed 4/3 which is option 2}
+from eq 1,2 we can say that 
+\begin{equation}
+\Sigma_{i=1}^nl^tX_iX_i^tl \sim (l^t\Sigma l)\chi_n^2    
+\end{equation}
+Hence option 2 is correct because \(l^t(\Sigma_{i=1}^{n_1}X_iX_i^t)l\) follows non-central chi square distribution\\
 
-\section{Proof that Variance of linearly transformed space is eigan values of principle components}
-
-Here in this problem 4 dimensional random vector is given. Let's assume those random vector are \(X_1,X_2,X_3,X_4\) so the matrix will be \begin{bmatrix}
-X_1 & X_2 & X_3 & X_4
-\end{bmatrix}\\\\
-So here, co-variance matrix will be 
-
-
-\begin{bmatrix}
-var(X_1) & cov(X_1,X_2) & cov(X_1,X_3) & cov(X_1,X_4)\\
-cov(X_2,X_1) & var(X_2) & cov(X_2,X_3) & cov(X_2,X_4)\\
-cov(X_3,X_1) & cov(X_3,X_2) & var(X_3) & cov(X_3,X_4)\\
-cov(X_4,X_1) & cov(X_4,X_2) & cov(X_4,X_3) & var(X_4)\\
-\end{bmatrix} = \begin{bmatrix}
-1 & \rho & \rho & \rho\\
-\rho & 1 & \rho & \rho\\
-\rho & \rho & 1 & \rho\\
-\rho & \rho & \rho & 1\\
-\end{bmatrix} \quad\quad  ----- Eq(A)
-
-\\\par
-
-now by calculations we found out eigenvectors of all the eigen values and those eigen vectors are  
-\begin{bmatrix}
--1 \\ 0 \\ 0 \\ 1
-\end{bmatrix}, \begin{bmatrix}
--1 \\ 0 \\ 1 \\ 0
-\end{bmatrix}, \begin{bmatrix}
--1 \\ 1 \\ 0 \\ 0
-\end{bmatrix}, \begin{bmatrix}
-1 \\ 1 \\ 1 \\ 1
-\end{bmatrix}, for \(1 -\rho,1 -\rho,1 -\rho,3\rho + 1\). 
-
-now since we want to find out variance for first principle component we'll apply linear transformation using eigen vector where eigen value is maximum which is \(1 - \rho\) in this case. and respective eigen vector is ev =  \begin{bmatrix}
--1 \\ 0 \\ 0 \\ 1
-\end{bmatrix}.
-
-In PCA, before applying linear transformation to data first we convert respective eigen vector to unit length vector. 
-so unit eigen vector for ev is
-\begin{align}
-    uev &= \frac{1}{||X||}*ev \\
-    &=\frac{1}{\sqrt{(-1)^2+0+0+(1)^2}}*\begin{bmatrix}
--1 \\ 0 \\ 0 \\ 1
-\end{bmatrix}\\
-    &=\frac{1}{\sqrt{2}}*\begin{bmatrix}
--1 \\ 0 \\ 0 \\ 1
-\end{bmatrix}\\
-&=\begin{bmatrix}
-\frac{-1}{\sqrt{2}} \\ 0 \\ 0 \\ \frac{1}{2}
-\end{bmatrix}
-\end{align}
-
-Now let's apply linear transformation on data.
-
-\begin{bmatrix}
-X_1 & X_2 & X_3 & X_4
-\end{bmatrix} * \begin{bmatrix}
-\frac{-1}{\sqrt{2}} \\ 0 \\ 0 \\ \frac{1}{\sqrt{2}}
-\end{bmatrix} = \begin{bmatrix}
-\frac{-X_1}{\sqrt{2}} + \frac{X_4}{\sqrt{2}}
-\end{bmatrix}\\
-
-so here we wants to find variance of linearly transformed space.
-\\
-\begin{align*}
-    V(\frac{-X_1}{\sqrt{2}}\:+\frac{X_4}{\sqrt{2}})\:{}&\\
-    &=\:V(\frac{-X_1}{\sqrt{2}})\:+\:V(\frac{X_4}{\sqrt{2}})\:&\\-\:2cov(\frac{-X_1}{\sqrt{2}},\frac{X_4}{\sqrt{2}}) \\
-    &=\:V(\frac{X_1}{\sqrt{2}})\:+\:V(\frac{X_4}{\sqrt{2}})\:-&\\\:2cov(\frac{X_1}{\sqrt{2}},\frac{X_4}{\sqrt{2}}) \\
-    \:\:(\because V(-X)\:=\:V(X))\\
-    &= \frac{var(X_1)}{2} + \frac{var(X_4)}{2} &\\- \frac{2cov(X_1,X_4)}{\sqrt{2}\sqrt{2}} &\\
-    (\because var(cX) = c^2var(X) &\\\:cov(aX,bY) = ab*cov(X,Y))\\
-    &=\frac{1}{2}+\frac{1}{2}-p&\\(from \:Eq(A))&\\
-    &=1\:-\:p
-\end{align*} which is the eigen value of first principal component.
+Option 3 is correct because we know that functions of independent random variables are independent and here \(l^t(\Sigma_{i=1}^{n_1}X_iX_i^t)l\) and \(l^t(\Sigma_{i={n_1+1}}^nX_iX_i^t)l\) are functions of \(X_i\) which are i.i.d in nature and resultant functions are also independent.\\\\
+For option 1,4 first We'll find \(E(\Sigma_{i=1}^nX_iX_i^t)\)
+\begin{equation}
+    \begin{split}
+        E(\Sigma_{i=1}^nX_iX_i^t) &= \Sigma_{i=1}^nE(X_iX_i^t)\\
+        &=nE(X_iX_i^t)
+    \end{split}
+\end{equation}
+Where the equality follows from the linearity of the expectation and that \(X_i\) are identically distributed. but for any random vector Y, \(Cov(Y) = E(YY^t) - E(Y)E(Y^t)\). Hence from eq 4
+\begin{equation}
+\begin{split}
+    nE(X_iX_i^t) &= n(Cov(X_iX_i^t) - E(X_i)E(X_i^t))\\
+    &=nCov(X_iX_i^t)\\
+    &=n\Sigma
+\end{split}
+\end{equation}
+becuase \(E(X_i) = 0\) and \(Cov(X_iX_i^t)=\Sigma\). Hence Option 4 is incorrect
+Nor here from,
+\begin{equation}
+    \begin{split}
+        E(\Sigma_{i=1}^nX_iX_i^t) = n\Sigma
+    \end{split}
+\end{equation}
+So from eq 6,
+\begin{equation}
+    \begin{split}
+        l^tE(\Sigma_{i=1}^nX_iX_i^t)l &= nl^t\Sigma l
+        &=c
+    \end{split}
+\end{equation}
+Hence, Option 1 is also Incorrect.\\\\
+\textbf{So here, option 2,3 are correct and option 1,4 are incorrect}
 \end{document}
 
 
